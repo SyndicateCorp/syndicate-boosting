@@ -1,0 +1,58 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\User;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        User::create([
+            'name' => 'Administrator',
+            'email' => 'admin@gmail.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('password'),
+        ]);
+        $this->call([
+            FaqSeeder::class,
+        ]);
+        $this->call([
+            GameSeeder::class,
+        ]);
+        $this->call([
+            LabelSeeder::class,
+        ]);
+        $this->call([
+            GameAccountSeeder::class,
+        ]);
+        $this->call([
+            BoostingServiceSeeder::class,
+        ]);
+        $this->call([
+            ApexLegendRankCategorySeeder::class,
+        ]);
+        $this->call([
+            ApexLegendGameRankTierSeeder::class,
+        ]);
+        $this->call([
+            ApexLegendGameRankTierDetailSeeder::class,
+        ]);
+        $this->call([
+            MobileLegendRankCategorySeeder::class,
+        ]);
+        $this->call([
+            MobileLegendGameRankTierSeeder::class,
+        ]);
+        $this->call([
+            MobileLegendGameRankTierDetailSeeder::class,
+        ]);
+        $this->call([
+            TransactionSeeder::class,
+        ]);
+    }
+}
